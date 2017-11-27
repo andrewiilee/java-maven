@@ -4,9 +4,9 @@ import java.util.Optional;
 import org.junit.Test;
 
 /**
- * Unit test for simple App.
+ * Unit test for Java8 Nullable.
  */
-public class AppTest {
+public class NullableTest {
 
     @Test
     public void simpleTest() {
