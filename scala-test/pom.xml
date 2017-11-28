@@ -38,6 +38,13 @@
                 <version>3.3.1</version>
                 <executions>
                     <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <phase>compile</phase>
                         <goals>
                             <goal>compile</goal>
@@ -58,8 +65,6 @@
                 <version>1.0</version>
                 <configuration>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                    <junitxml>.</junitxml>
-                    <filereports>WDF TestSuite.txt</filereports>
                 </configuration>
                 <executions>
                     <execution>
