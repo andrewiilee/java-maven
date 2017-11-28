@@ -15,3 +15,6 @@ The purpose of this repo is to demonstrate computer science topics
 ---------------------------------
 - [ X ] Generic Types
 
+# Interesting Things
+---------------------------------
+- [ . ] POM inheritance

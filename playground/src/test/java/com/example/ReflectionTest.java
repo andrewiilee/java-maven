@@ -1,5 +1,6 @@
 package com.example;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -18,7 +19,7 @@ public class ReflectionTest {
         Method method = Reflection.class.getDeclaredMethod("helloWorld", String.class);
         method.setAccessible(true);
         String response = (String) method.invoke(ref,"myTestString");
-        assertThat("Response does not match", response , is("myTestString"));
+        assertThat("Response does not match", response, is("myTestString"));
     }
 
 
@@ -35,6 +36,17 @@ public class ReflectionTest {
         Method method = Reflection.class.getDeclaredMethod("multiWorld", params);
         method.setAccessible(true);
         String response = (String) method.invoke(ref,obj);
-        assertThat("Response does not match", response , is("multiTest"));
+        assertThat("Response does not match", response, is("multiTest"));
+    }
+
+    //Get a field
+    @Test
+    public void reflectionField() throws Exception {
+        Reflection ref = new Reflection();
+
+        Field field = Reflection.class.getDeclaredField("HELLO");
+        field.setAccessible(true);
+        Object value = field.get(ref);
+        assertThat("Response does not match", value, is("HELLO"));
     }
 }

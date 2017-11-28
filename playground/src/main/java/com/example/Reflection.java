@@ -2,6 +2,7 @@ package com.example;
 
 public class Reflection {
 
+    private static final String HELLO = "HELLO";
 
     public static void main(String args[]) {
         System.out.println("hello");
