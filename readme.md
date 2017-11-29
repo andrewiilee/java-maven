@@ -3,18 +3,15 @@ Java-Science repo
 
 The purpose of this repo is to demonstrate computer science topics
 
-# Scala Examples
----------------------------------
-- [ . ] create Big O examples
+#####scala-test
+- [ . ] Do something in scala
 
-# Java Playground
----------------------------------
+#####playground
 - [ . ] Quick template for any java test
 
-# Java & Object-Oriented Programming
----------------------------------
+#####generics
 - [ X ] Generic Types
 
-# Interesting Things
----------------------------------
-- [ . ] POM inheritance
+#####Interesting Things
+- [ X ] POM inheritance
+- [ . ] create Big O examples
