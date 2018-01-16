@@ -1,7 +1,7 @@
 package tell.dont.ask;
 
 abstract class WebMessageStrategy {
-    String webMessageType;
+    private String webMessageType;
 
     WebMessageStrategy(String webMessageType){
         this.webMessageType = webMessageType;

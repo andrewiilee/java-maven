@@ -7,6 +7,7 @@ public class SoapStrategy extends WebMessageStrategy {
         super("Soap");
         this.soapMessageType = soapMessageType;
     }
+
     @Override
     String getData() {
         return getFirstPart() + ", type:" + soapMessageType;
