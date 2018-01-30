@@ -9,5 +9,8 @@ public class ReflectionMain {
 
         web = ReflectionEnum.getWebMessage("sOaPtWo");
         System.out.println(web.getData());
+
+        web = ReflectionEnum.getWebMessage("sOaPthReE");
+        System.out.println(web.getData());
     }
 }

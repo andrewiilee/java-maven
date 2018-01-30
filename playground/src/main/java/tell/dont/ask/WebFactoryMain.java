@@ -10,6 +10,7 @@ public class WebFactoryMain {
 
         web = WebFactoryEnum.SOAPTWO.getWebMessage();
         System.out.println(web.getData());
+
         System.out.println("");
         System.out.println("Advance Factory");
         web = AdvanceFactoryEnum.RESTONE.getInstance();

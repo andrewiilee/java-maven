@@ -16,7 +16,7 @@ public enum WebFactoryEnum {
             case SOAPONE:
                 throw new ClassNotFoundException("Class not found");
             case SOAPTWO:
-                return getWebMessage(SoapTwo.class);
+                return new SoapTwo();
             default:
                 throw new ClassNotFoundException("Class not found");
         }

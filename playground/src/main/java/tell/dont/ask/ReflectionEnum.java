@@ -1,29 +1,26 @@
 package tell.dont.ask;
 
-import java.util.Arrays;
+import java.util.EnumSet;
 
 public enum ReflectionEnum {
 
     RESTONE("tell.dont.ask.RestOne"),
     SOAPTWO("tell.dont.ask.SoapTwo");
 
-    private final String name;
+    private final String className;
 
-    ReflectionEnum(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
+    ReflectionEnum(String className) {
+        this.className = className;
     }
 
     public static WebMessageStrategy getWebMessage(String input) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
-        return web(Arrays.stream(ReflectionEnum.values())
-                .filter(e -> e.name().equalsIgnoreCase(input)).findAny().orElse(null).getName());
-    }
+        ReflectionEnum enumType = EnumSet.allOf(ReflectionEnum.class)
+                .stream()
+                .filter(p -> p.name().equalsIgnoreCase(input))
+                .findAny()
+                .orElseThrow(() -> new ClassNotFoundException(input + " is not a known class"));
 
-    private static WebMessageStrategy web(String className) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        Class clazz = Class.forName(className);
+        Class clazz = Class.forName(enumType.className);
         return (WebMessageStrategy) clazz.newInstance();
     }
 }
