@@ -54,5 +54,6 @@
         <module>scala-test</module>
         <module>playground</module>
         <module>stream</module>
+        <module>kotlin-test</module>
     </modules>
 </project>
