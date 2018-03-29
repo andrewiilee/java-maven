@@ -34,7 +34,7 @@ public class AndrewLinkList<T> implements List<T> {
     }
 
     private Node<T> getNodeByIndex(int index) {
-        //TODO check index is a positive number
+        //TODO check if index out of bound
         Node<T> indexNode = first;
         for (int i = 0; i < index; i++)
             indexNode = indexNode.next;
@@ -160,7 +160,6 @@ public class AndrewLinkList<T> implements List<T> {
 
     @Override
     public T get(int index) {
-        //TODO check if index out of bound
         return getNodeByIndex(index).item;
     }
 
