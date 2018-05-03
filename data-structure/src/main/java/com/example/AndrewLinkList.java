@@ -41,31 +41,33 @@ public class AndrewLinkList<T> implements List<T> {
         return indexNode;
     }
 
-    private void removeNode(Object o) {
-        Node<T> indexNode = first;
+    private boolean removeNode(Object o) {
+        Node<T> currNode = first;
         Node<T> nextNode;
 
         //check head
-        if (indexNode.item.equals(o)) {
-            first = indexNode.next;
-            System.out.println("removing first node");
+        if (first.item.equals(o)) {
+            first = first.next;
+            System.out.println("removing first node: " + o);
+            return true;
         }
 
-        while (indexNode.next != null) {
-            nextNode = indexNode.next;
+        while (currNode != null && currNode.next != null) {
+            nextNode = currNode.next;
             //check middle
             if (nextNode.item.equals(o) && nextNode.next != null) {
-                indexNode.next = nextNode.next;
-                System.out.println("removing node and connect");
-                indexNode = indexNode.next;
+                currNode.next = nextNode.next;
+                System.out.println("removing connecting node: " + o);
+                return true;
             //check last
             } else if (nextNode.item.equals(o)) {
-                indexNode.next = null;
-                System.out.println("removing last node");
-            } else
-                indexNode = indexNode.next;
+                currNode.next = null;
+                System.out.println("removing last node: " + o);
+                return true;
+            }
+            currNode = currNode.next;
         }
-
+        return false;
     }
 
     @Override
@@ -124,8 +126,7 @@ public class AndrewLinkList<T> implements List<T> {
 
     @Override
     public boolean remove(Object o) {
-        removeNode(o);
-        return true;
+        return removeNode(o);
     }
 
     @Override

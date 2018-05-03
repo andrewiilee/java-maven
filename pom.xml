@@ -53,6 +53,6 @@
         <module>scala-test</module>
         <module>playground</module>
         <module>kotlin-test</module>
-        <module>linkedlist</module>
+        <module>data-structure</module>
   </modules>
 </project>
