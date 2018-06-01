@@ -17,16 +17,15 @@ public class TreeTest {
         create_second_tree(false).print();
     }
 
-    AndrewTree create_binary_tree(boolean value) {
+    private AndrewTree create_binary_tree(boolean value) {
         AndrewTree testTree = new AndrewTree(value);
         testTree.insert(10);
         testTree.insert(20);
         testTree.insert(30);
-
         return testTree;
     }
 
-    AndrewTree create_second_tree(boolean value) {
+    private AndrewTree create_second_tree(boolean value) {
         AndrewTree tree = new AndrewTree(value);
         tree.insert(50);
         tree.insert(100);

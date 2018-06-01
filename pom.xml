@@ -49,6 +49,7 @@
     </build>
 
     <modules>
+        <module>futures</module>
         <module>generics</module>
         <module>scala-test</module>
         <module>playground</module>

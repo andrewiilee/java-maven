@@ -27,8 +27,15 @@ public class AndrewTree {
             printTree("", true);
         }
 
+        /**
+         * First node prints an inserted line then the node num
+         * Subsequent node prints an inserted line based on if there are any child nodes
+         *
+         * @param prefix
+         * @param isTail
+         */
         void printTree(String prefix, boolean isTail) {
-            System.out.println(prefix + (isTail ? "╰── " : "|── ") + num + ":" + height);
+            System.out.println(prefix + (isTail ? "╰── " : "├── ") + num + ":" + height);
             List<Node> list = new ArrayList<>();
             if (right != null)
                 list.add(right);
@@ -37,12 +44,11 @@ public class AndrewTree {
                 list.add(left);
 
             for (int i = 0; i < list.size() - 1; i++) {
-                list.get(i).printTree(prefix + (isTail ? "    " : "|   "), false);
+                list.get(i).printTree(prefix + (isTail ? "    " : "│   "), false);
             }
 
             if (list.size() > 0) {
-                list.get(list.size() - 1)
-                        .printTree(prefix + (isTail ? "    " : "|   "), true);
+                list.get(list.size() - 1).printTree(prefix + (isTail ? "    " : "│   "), true);
             }
         }
     }
@@ -51,7 +57,7 @@ public class AndrewTree {
         tree = insert(tree, num);
     }
 
-    Node insert(Node node, int num) {
+    private Node insert(Node node, int num) {
         if (node == null)
             return new Node(num);
 
