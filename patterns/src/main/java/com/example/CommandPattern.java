@@ -1,5 +1,9 @@
 package com.example;
 
+import com.example.command.Commands;
+import com.example.command.FileConfig;
+import com.example.command.FileExecutor;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,29 +14,34 @@ import org.apache.commons.lang3.EnumUtils;
  *
  * @author alee2
  */
-public class CommandPattern {
+class CommandPattern {
 
-    private final String inputCommandLine;
+    private final FileConfig fileConfig;
 
-    CommandPattern(String inputCommandLine) {
-        this.inputCommandLine = inputCommandLine;
+    CommandPattern(FileConfig fileConfig) {
+        this.fileConfig = fileConfig;
     }
 
-    void execute() {
-        if(inputCommandLine.contains("COMMAND")) {
-            List<FileExecutor> executors = addInputCommand(inputCommandLine);
+    List<FileExecutor> execute() {
+        if(fileConfig.getCommandInput().contains("COMMAND")) {
+            List<FileExecutor> executors = addInputCommand(fileConfig);
             executors.forEach(FileExecutor::execute);
+            return executors;
         } else {
-            System.out.println("No command");
+            System.out.println("Not a command input");
+            return new ArrayList<>();
         }
     }
 
-    private List<FileExecutor> addInputCommand(String inputCommandLine) {
+    private List<FileExecutor> addInputCommand(FileConfig fileConfig) {
         ArrayList<FileExecutor> executors = new ArrayList<>();
-        Arrays.stream(inputCommandLine.split(" ")).forEach(command -> {
+
+        Arrays.stream(fileConfig.getCommandInput().split(" ")).forEach(command -> {
             System.out.println("Command split: " + command + ".");
             if(EnumUtils.isValidEnum(Commands.class, command)) {
-                executors.add(Commands.valueOf(command).getInstance());
+                FileExecutor fileExecutor = Commands.valueOf(command).getInstance();
+                fileExecutor.setFileConfig(fileConfig);
+                executors.add(fileExecutor);
             }
         } );
         return executors;

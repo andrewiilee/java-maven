@@ -1,4 +1,4 @@
-package com.example;
+package com.example.command;
 
 import com.example.commands.Copy;
 import com.example.commands.Done;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
  *
  * @author alee2
  */
-enum Commands {
+public enum Commands {
     MOVE(Move::new),
     COPY(Copy::new),
     DOT(Dot::new),

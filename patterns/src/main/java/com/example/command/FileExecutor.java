@@ -1,4 +1,4 @@
-package com.example;
+package com.example.command;
 
 /**
  * Created by alee2 on 7/12/18.
@@ -7,4 +7,6 @@ package com.example;
  */
 public interface FileExecutor {
     void execute();
+
+    void setFileConfig(FileConfig fileConfig);
 }
