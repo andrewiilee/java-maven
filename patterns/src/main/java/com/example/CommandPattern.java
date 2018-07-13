@@ -1,7 +1,6 @@
 package com.example;
 
 import com.example.command.Commands;
-import com.example.command.FileConfig;
 import com.example.command.FileExecutor;
 
 import java.util.ArrayList;
@@ -23,8 +22,8 @@ class CommandPattern {
     }
 
     List<FileExecutor> execute() {
-        if(fileConfig.getCommandInput().contains("COMMAND")) {
-            List<FileExecutor> executors = addInputCommand(fileConfig);
+        if(fileConfig.commandIsPresent()) {
+            List<FileExecutor> executors = addInputCommand();
             executors.forEach(FileExecutor::execute);
             return executors;
         } else {
@@ -33,10 +32,10 @@ class CommandPattern {
         }
     }
 
-    private List<FileExecutor> addInputCommand(FileConfig fileConfig) {
+    private List<FileExecutor> addInputCommand() {
         ArrayList<FileExecutor> executors = new ArrayList<>();
 
-        Arrays.stream(fileConfig.getCommandInput().split(" ")).forEach(command -> {
+        Arrays.stream(fileConfig.getCommandInput()).forEach(command -> {
             System.out.println("Command split: " + command + ".");
             if(EnumUtils.isValidEnum(Commands.class, command)) {
                 FileExecutor fileExecutor = Commands.valueOf(command).getInstance();

@@ -1,4 +1,4 @@
-package com.example.command;
+package com.example;
 
 import java.util.Objects;
 
@@ -12,8 +12,8 @@ public class FileConfig {
     private String fileName;
     private String commandInput;
 
-    public String getCommandInput() {
-        return commandInput;
+    public String[] getCommandInput() {
+        return commandInput.split(" ");
     }
 
     public void setCommandInput(String commandInput) {
@@ -36,9 +36,13 @@ public class FileConfig {
         this.fileName = fileName;
     }
 
-    void validate() {
+    public void validate() {
         if(Objects.isNull(fileName) || Objects.isNull(filePath)) {
             throw new NullPointerException("FileName and FilePath must be specified for commands to run");
         }
+    }
+
+    public boolean commandIsPresent() {
+        return commandInput.contains("COMMAND");
     }
 }

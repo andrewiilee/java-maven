@@ -1,6 +1,5 @@
 package com.example;
 
-import com.example.command.FileConfig;
 import com.example.command.FileExecutor;
 import com.example.commands.Copy;
 import com.example.commands.Done;
