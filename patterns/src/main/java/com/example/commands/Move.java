@@ -11,7 +11,6 @@ import com.example.command.FileExecutor;
 public class Move extends AbstractFileConfig implements FileExecutor {
     @Override
     public void execute() {
-        validateFileConfig();
         System.out.println("Move detected and moving");
         System.out.println("Move: " + getFileConfig().getFilePath() + getFileConfig().getFileName());
     }

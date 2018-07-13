@@ -9,4 +9,6 @@ public interface FileExecutor {
     void execute();
 
     void setFileConfig(FileConfig fileConfig);
+
+    void validateFileConfig();
 }

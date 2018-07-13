@@ -40,7 +40,10 @@ class CommandPattern {
             System.out.println("Command split: " + command + ".");
             if(EnumUtils.isValidEnum(Commands.class, command)) {
                 FileExecutor fileExecutor = Commands.valueOf(command).getInstance();
+                //Setting fileConfig into the constructor of input commands is a better way than
+                //trying to initialize an object post-const. Improvements can be made here
                 fileExecutor.setFileConfig(fileConfig);
+                fileExecutor.validateFileConfig();
                 executors.add(fileExecutor);
             }
         } );

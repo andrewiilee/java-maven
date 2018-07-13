@@ -36,7 +36,7 @@ public class FileConfig {
         this.fileName = fileName;
     }
 
-    public void validate() {
+    void validate() {
         if(Objects.isNull(fileName) || Objects.isNull(filePath)) {
             throw new NullPointerException("FileName and FilePath must be specified for commands to run");
         }

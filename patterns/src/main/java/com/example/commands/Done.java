@@ -11,7 +11,6 @@ import com.example.command.FileExecutor;
 public class Done extends AbstractFileConfig implements FileExecutor {
     @Override
     public void execute() {
-        validateFileConfig();
         System.out.println("Done detected and completing file");
         System.out.println("Done: " + getFileConfig().getFilePath() + getFileConfig().getFileName());
     }

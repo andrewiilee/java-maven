@@ -11,7 +11,6 @@ import com.example.command.FileExecutor;
 public class Dot extends AbstractFileConfig implements FileExecutor {
     @Override
     public void execute() {
-        validateFileConfig();
         System.out.println("Dot detected and hiding file");
         System.out.println("Dot: " + getFileConfig().getFilePath() + getFileConfig().getFileName());
     }
