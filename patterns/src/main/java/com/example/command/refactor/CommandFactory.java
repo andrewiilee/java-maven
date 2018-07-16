@@ -9,7 +9,7 @@ import com.example.commands.refactor.Move;
  *
  * @author alee2
  */
-public enum Commands implements Initialize {
+public enum CommandFactory implements Initialize {
     MOVE {
         @Override
         public Command initializeCommand(FileConfig fileConfig) {

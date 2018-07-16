@@ -1,7 +1,6 @@
 package com.example.commands.refactor;
 
 import com.example.FileConfig;
-import com.example.command.refactor.AbstractCommand;
 import com.example.command.refactor.Command;
 
 /**
@@ -9,7 +8,7 @@ import com.example.command.refactor.Command;
  *
  * @author alee2
  */
-public class Copy extends AbstractCommand implements Command {
+public class Copy extends Command {
 
     public Copy(FileConfig fileConfig) {
         super(fileConfig);

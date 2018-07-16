@@ -30,6 +30,6 @@ public class CommandPatternRefactorTest {
         assertEquals(2, executorList.size());
         assertTrue(executorList.stream().anyMatch(e -> e instanceof Move));
         assertTrue(executorList.stream().anyMatch(e -> e instanceof Copy));
+
     }
 }
-

@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.command.FileExecutor;
+import com.example.command.Command;
 import com.example.commands.Copy;
 import com.example.commands.Done;
 import com.example.commands.Dot;
@@ -22,7 +22,7 @@ public class CommandPatternTest {
         fileConfig.setFilePath("/some/directory/path/");
 
         CommandPattern cp = new CommandPattern(fileConfig);
-        List<FileExecutor> executorList = cp.execute();
+        List<Command> executorList = cp.execute();
 
         assertEquals(4, executorList.size());
         assertTrue(executorList.stream().anyMatch(e -> e instanceof Move));

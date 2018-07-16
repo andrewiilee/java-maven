@@ -12,19 +12,19 @@ import java.util.function.Supplier;
  *
  * @author alee2
  */
-public enum Commands {
+public enum CommandFactory {
     MOVE(Move::new),
     COPY(Copy::new),
     DOT(Dot::new),
     DONE(Done::new);
 
-    private Supplier<FileExecutor> instantiator;
+    private Supplier<Command> instantiator;
 
-    Commands(Supplier<FileExecutor> instantiator) {
+    CommandFactory(Supplier<Command> instantiator) {
         this.instantiator = instantiator;
     }
 
-    public FileExecutor getInstance() {
+    public Command getInstance() {
         return instantiator.get();
     }
 }

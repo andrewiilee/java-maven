@@ -1,7 +1,7 @@
 package com.example;
 
-import com.example.command.refactor.Commands;
 import com.example.command.refactor.Command;
+import com.example.command.refactor.CommandFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,14 +34,13 @@ public class CommandPatternRefactor {
     private List<Command> getAllExecutors() {
         ArrayList<Command> executors = new ArrayList<>();
 
-        Arrays.stream(fileConfig.getCommandInput()).forEach(command -> {
-            System.out.println("Command split: " + command + ".");
-            if (EnumUtils.isValidEnum(Commands.class, command)) {
-                Command fileExecutor = Commands.valueOf(command).initializeCommand(fileConfig);
-                executors.add(fileExecutor);
+        Arrays.stream(fileConfig.getCommandInput()).forEach(input -> {
+            System.out.println("Input split: " + input + ".");
+            if (EnumUtils.isValidEnum(CommandFactory.class, input)) {
+                Command command = CommandFactory.valueOf(input).initializeCommand(fileConfig);
+                executors.add(command);
             }
         });
         return executors;
     }
 }
-

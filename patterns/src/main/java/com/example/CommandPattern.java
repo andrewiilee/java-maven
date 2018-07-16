@@ -1,7 +1,7 @@
 package com.example;
 
-import com.example.command.Commands;
-import com.example.command.FileExecutor;
+import com.example.command.Command;
+import com.example.command.CommandFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,10 +21,10 @@ class CommandPattern {
         this.fileConfig = fileConfig;
     }
 
-    List<FileExecutor> execute() {
+    List<Command> execute() {
         if(fileConfig.commandIsPresent()) {
-            List<FileExecutor> executors = addInputCommand();
-            executors.forEach(FileExecutor::execute);
+            List<Command> executors = addInputCommand();
+            executors.forEach(Command::execute);
             return executors;
         } else {
             System.out.println("Not a command input");
@@ -32,18 +32,18 @@ class CommandPattern {
         }
     }
 
-    private List<FileExecutor> addInputCommand() {
-        ArrayList<FileExecutor> executors = new ArrayList<>();
+    private List<Command> addInputCommand() {
+        ArrayList<Command> executors = new ArrayList<>();
 
-        Arrays.stream(fileConfig.getCommandInput()).forEach(command -> {
-            System.out.println("Command split: " + command + ".");
-            if(EnumUtils.isValidEnum(Commands.class, command)) {
-                FileExecutor fileExecutor = Commands.valueOf(command).getInstance();
+        Arrays.stream(fileConfig.getCommandInput()).forEach(input -> {
+            System.out.println("Command split: " + input + ".");
+            if(EnumUtils.isValidEnum(CommandFactory.class, input)) {
+                Command command = CommandFactory.valueOf(input).getInstance();
                 //Setting fileConfig into the constructor of input commands is a better way than
                 //trying to initialize an object post-const. Improvements can be made here
-                fileExecutor.setFileConfig(fileConfig);
-                fileExecutor.validateFileConfig();
-                executors.add(fileExecutor);
+                command.setFileConfig(fileConfig);
+                command.validateFileConfig();
+                executors.add(command);
             }
         } );
         return executors;

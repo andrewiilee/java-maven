@@ -7,7 +7,7 @@ import com.example.FileConfig;
  *
  * @author alee2
  */
-public abstract class AbstractFileConfig implements FileExecutor {
+public abstract class Command {
 
     private FileConfig fileConfig;
 
@@ -22,4 +22,6 @@ public abstract class AbstractFileConfig implements FileExecutor {
     public void setFileConfig(FileConfig fileConfig) {
         this.fileConfig = fileConfig;
     }
+
+    public abstract void execute();
 }
