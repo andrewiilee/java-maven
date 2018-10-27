@@ -57,8 +57,5 @@
         <module>kotlin-test</module>
         <module>data-structure</module>
         <module>patterns</module>
-        <module>quick</module>
-        <module>quick2</module>
-        <module>quick3</module>
     </modules>
 </project>
