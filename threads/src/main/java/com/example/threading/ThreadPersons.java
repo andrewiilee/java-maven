@@ -8,7 +8,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.stream.IntStream;
 
 //Two ways to create threading
 //implement Runnable
@@ -27,8 +26,12 @@ public class ThreadPersons {
 
     public void multiplePersonWalk() {
         List<String> list = new ArrayList<>();
-        for(Person person : personList) {
-            callableList.add(person::walkInto);
+        for (Person person : personList) {
+            callableList.add(() -> {
+                Thread.sleep((long) (Math.random() * 200) + 1);
+                person.walkInto();
+                return "";
+            });
         }
         try {
             //execute callable list based on the number of THREADS
