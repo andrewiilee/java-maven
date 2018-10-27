@@ -1,4 +1,4 @@
 package com.example.threading;
 
-public class ThreadPersons {
+public class RunnablePersons {
 }

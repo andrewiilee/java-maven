@@ -1,7 +1,7 @@
 package com.example;
 
 import com.example.models.Person;
-import com.example.threading.ThreadPersons;
+import com.example.threading.CallablePersons;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class CoffeePeopleTest {
         for (int i = 0; i < 10; i++) {
             personList.add(new Person(String.valueOf(i)));
         }
-        ThreadPersons tp = new ThreadPersons(personList);
+        CallablePersons tp = new CallablePersons(personList);
         tp.multiplePersonWalk();
     }
 }
