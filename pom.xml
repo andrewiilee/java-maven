@@ -32,6 +32,15 @@
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -57,5 +66,6 @@
         <module>kotlin-test</module>
         <module>data-structure</module>
         <module>patterns</module>
+        <module>threads</module>
     </modules>
 </project>
