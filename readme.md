@@ -1,13 +1,13 @@
-Java-Science repo
+java-maven repo
 -----------
 
-The purpose of this repo is to demonstrate computer science topics with java
+Demonstrate computer science topics with java
 
 #####scala-test
-- [ . ] Do something in scala
+- [ x ] Do something in scala (in another repo)
 
 #####kotlin-test
-- [ . ] Do something in kotlin
+- [ x ] Do something in kotlin (in another repo)
 
 #####playground
 - [ . ] Quick template for any java test
