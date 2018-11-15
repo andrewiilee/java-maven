@@ -1,6 +1,6 @@
-package com.example;
+package com.example.spring;
 
-import com.example.book.Book;
+import com.example.spring.book.Generic;
 import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

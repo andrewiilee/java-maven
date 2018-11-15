@@ -1,4 +1,4 @@
-package com.example;
+package com.example.spring.book;
 
 public abstract class Generic<T>
 {

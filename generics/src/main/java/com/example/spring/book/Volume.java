@@ -1,6 +1,6 @@
-package com.example.book;
+package com.example.spring.book;
 
-import com.example.Generic;
+import com.example.spring.Book;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author alee2
  */
 @Component("Volume")
-public class Volume extends Generic<Book>{
+public class Volume extends Generic<Book> {
     private String getBeholder() {
         return "beholder";
     }

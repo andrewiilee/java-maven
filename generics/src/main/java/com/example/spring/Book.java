@@ -1,4 +1,4 @@
-package com.example.book;
+package com.example.spring;
 
 /**
  * Created by alee2 on 8/2/17.
@@ -14,11 +14,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getAuthor() {
+    String getAuthor() {
         return author;
     }
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 }

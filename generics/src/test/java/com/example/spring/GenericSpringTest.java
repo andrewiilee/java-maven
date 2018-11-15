@@ -1,8 +1,8 @@
-package com.example;
+package com.example.spring;
 
-import com.example.book.Book;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *
  * @author alee2
  */
-public class GenericTest {
+public class GenericSpringTest {
 
     private ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
     private Config config = ctx.getBean(Config.class);
